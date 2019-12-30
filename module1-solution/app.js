@@ -6,7 +6,7 @@ LunchCheckController.$inject = ['$scope'];
 function LunchCheckController($scope){
 $scope.checkLunch = function(){
   var lunchItemsStr = $scope.lunchItems;
-  if (typeof lunchItemsStr === "undefined"){
+  if (typeof lunchItemsStr === "undefined" ||lunchItemsStr === ""){
     $scope.lunchCheckResult='Please enter data first';
     $scope.messageType='Error';
    }
