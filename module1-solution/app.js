@@ -8,9 +8,11 @@ $scope.checkLunch = function(){
   var lunchItemsStr = $scope.lunchItems;
   if (typeof lunchItemsStr === "undefined"){
     $scope.lunchCheckResult='Please enter data first';
-  }
+    $scope.messageType='Error';
+   }
   else{
     var lunchItemArr = lunchItemsStr.split(',');
+    $scope.messageType='Info';
     if(lunchItemArr.length <= 3){
         $scope.lunchCheckResult='Enjoy!';
     }else{

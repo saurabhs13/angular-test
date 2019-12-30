@@ -7,9 +7,13 @@
     <link rel="stylesheet" href="styles/bootstrap.min.css">
     <style>
       .message { font-size: 1.3em; font-weight: bold; }
+      .messageColorError { color: red;}
+      .messageColorInfo { color: green;}
+      .textBoxError {border-color:red;}
+      .textBoxInfo {border-color:green;}
     </style>
     <script src="angular.min.js" charset="utf-8"></script>
-    <script src="app.min.js" charset="utf-8"></script>
+    <script src="app.js" charset="utf-8"></script>
   </head>
 <body>
    <div class="container" ng-controller="LunchCheckController">
@@ -18,13 +22,15 @@
          <div class="form-group">
              <input id="lunch-menu" type="text" ng-model="lunchItems"
              placeholder="list comma separated dishes you usually have for lunch"
-             class="form-control">
+             class="form-control textBox{{messageType}}">
          </div>
          <div class="form-group">
              <button class="btn btn-default" ng-click="checkLunch()">Check If Too Much</button>
          </div>
          <div class="form-group message">
-           {{lunchCheckResult}}
+          <span class="messageColor{{messageType}}">
+            {{lunchCheckResult}}
+          </span>
          </div>
    </div>
 
