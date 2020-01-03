@@ -22,10 +22,7 @@ NarrowItDownController.$inject = ['MenuSearchService'];
 
 function NarrowItDownController(MenuSearchService){
   var nidc = this;
-
-
     nidc.getMatchedMenuItems = function(){
-      console.log('Search Term:',nidc.searchTerm);
       if(typeof nidc.searchTerm == 'undefined' || nidc.searchTerm.trim() == ""){
         nidc.categories = [];
       }else{
@@ -47,7 +44,6 @@ function NarrowItDownController(MenuSearchService){
 MenuSearchService.$inject = ['$http', 'ApiBasePath'];
 function MenuSearchService($http, ApiBasePath) {
   var service = this;
-
   service.getMatchedMenuItems = function (searchTerm) {
    return  $http({
       method: "GET",
@@ -55,14 +51,11 @@ function MenuSearchService($http, ApiBasePath) {
     }).then(function (response) {
         var reponseArray = response.data.menu_items;
         var foundItems = [];
-        console.log(foundItems);
-        console.log('Before Filter',reponseArray);
         for (var i = 0; i < reponseArray.length; i++) {
           if(reponseArray[i].description.indexOf(searchTerm) != -1){
             foundItems.push(reponseArray[i]);
           }
         }
-        console.log('After Filter',foundItems);
         return foundItems;
     },function(error){
       console.log(error);
