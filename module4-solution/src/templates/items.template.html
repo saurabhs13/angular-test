@@ -1,0 +1,8 @@
+<a ui-sref="home">Back to Home</a> <br/>
+<a ui-sref="categories">Back to Categories</a> <br/>
+List of menu items for category:
+<ul>
+  <li ng-repeat="item in $ctrl.items">
+{{ item.id }}, {{ item.short_name }}, {{ item.name }}
+  </li>
+</ul>
