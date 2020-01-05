@@ -14,7 +14,6 @@ function MenuDataService($http, ApiBasePath) {
       method: "GET",
       url: (ApiBasePath + "/categories.json")
     }).then(function (response) {
-        console.log("getAllCategories in service invoked",response);
         return response.data;
     },function(error){
       console.log(error);
