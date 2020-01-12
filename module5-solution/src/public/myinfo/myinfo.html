@@ -1,6 +1,25 @@
 <div class="container">
   <h2 class="text-center">MyInfo</h2>
     {{myinfoCtrl.userinfo}}
-    <menu-item menu-item="myinfoCtrl.menuItem">
-    </menu-item>
+    {{myinfoCtrl.menuItem}}
+    <span>First Name: {{myinfoCtrl.userinfo.firstname}}</span><br/>
+    <span>Last Name: {{myinfoCtrl.userinfo.lastname}}</span><br/>
+    <span>Email: {{myinfoCtrl.userinfo.email}}</span><br/>
+    <span>Phone: {{myinfoCtrl.userinfo.phone  }}</span><br/>
+    <span>Menu Item:</span><br/>
+    <div class="menu-item-tile col-md-6">
+      <div class="row">
+        <div class="col-sm-5">
+          <div class="menu-item-photo">
+            <div>{{myinfoCtrl.menuItem.short_name}}</div>
+            <img class="img-responsive" width="250" height="150" ng-src="{{myinfoCtrl.basePath}}/images/{{myinfoCtrl.menuItem.short_name}}.jpg" alt="{{myinfoCtrl.menuItem.name}}">
+          </div>
+        </div>
+        <div class="menu-item-description col-sm-7">
+          <h3 class="menu-item-title">{{myinfoCtrl.menuItem.name}}</h3>
+          <p class="menu-item-details">{{myinfoCtrl.menuItem.description}}</p>
+        </div>
+      </div>
+      <hr class="visible-xs">
+    </div>
 </div>

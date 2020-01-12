@@ -53,6 +53,15 @@ function routeConfig ($stateProvider) {
           resolve: {
             userinfo: ['AccountService', function (AccountService) {
               return AccountService.getUserInfo();
+            }],
+            menuItem: ['AccountService','MenuService', function (AccountService,MenuService) {
+              var user = AccountService.getUserInfo();
+              if(!(typeof user === "undefined")){
+                return MenuService.getMenuItemForShortName(user.menunumber);
+              }else {
+                return null;
+              }
+
             }]
           }
         });

@@ -4,16 +4,11 @@
 angular.module('public')
 .controller('MyInfoController', MyInfoController);
 
-MyInfoController.$inject = ['userinfo','MenuService'];
-function MyInfoController(userinfo,MenuService) {
+MyInfoController.$inject = ['userinfo','menuItem','ApiPath'];
+function MyInfoController(userinfo,menuItem) {
   var myinfoCtrl = this;
     myinfoCtrl.userinfo = userinfo;
-  if(!myinfoCtrl.userinfo ===null ){
-
-    myinfoCtrl.menuItem = MenuService.getMenuItemForShortName(userinfo.menunumber);
-    console.log("Inside if",myinfoCtrl.menuItem );
-  }
-
-
+    myinfoCtrl.menuItem = menuItem ;
+    myinfoCtrl.basePath = ApiPath ;
 }
 })();
