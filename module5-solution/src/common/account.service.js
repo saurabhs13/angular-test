@@ -17,6 +17,7 @@ function AccountService() {
   };
 
   service.getUserInfo = function(){
+      console.log("getUserInfo",currentUser);
       return currentUser;
   };
 }
