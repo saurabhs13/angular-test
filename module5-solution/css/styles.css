@@ -8,9 +8,10 @@ input {
 }
 button {
   font-size: 24px;
-  color:green;
 }
-
+button:enabled {
+  color:#000000;
+}
 .ng-touched.ng-valid {
   border: 2px green solid;
 }

@@ -1,4 +1,4 @@
-<div class="container" ng-controller="RegistrationController as reg">
+<div class="container" ng-controller="RegistrationController as reg" >
   <h2 class="text-center">Signup Form</h2>
       <legend>Signup</legend>
       <form name='regForm' novalidate>
@@ -7,13 +7,13 @@
           ng-model="reg.user.firstname"
           required
           minlength="1"
-          ng-maxlength="30">
+          ng-maxlength="30" ng-pattern="/^[a-zA-Z]*$/">
           <span
-            ng-if="(regForm.firstname.$error.minlength || regForm.firstname.$error.required) && regForm.firstname.$touched">
-            Username must be at least 1 characters long
+            ng-if="(regForm.firstname.$error.minlength || regForm.firstname.$error.required || regForm.firstname.$invalid) && regForm.firstname.$touched">
+              Firstname must be valid i.e. it should contain only alphabets and min. length = 1
           </span>
           <span ng-if="regForm.firstname.$error.maxlength && regForm.firstname.$touched">
-            Username must not be longer than 30 characters
+            Firstname must not be longer than 30 characters
           </span>
           <br>
 
@@ -21,14 +21,15 @@
             ng-model="reg.user.lastname"
             required
             minlength="1"
-            ng-maxlength="30">
+            ng-maxlength="30"
+            ng-pattern="/^[a-zA-Z]*$/">
 
             <span
-              ng-if="(regForm.lastname.$error.minlength || regForm.lastname.$error.required) && regForm.lastname.$touched">
-              Username must be at least 1 characters long
+              ng-if="(regForm.lastname.$error.minlength || regForm.lastname.$error.required || regForm.lastname.$invalid) && regForm.lastname.$touched">
+              Lastname must be valid i.e. it should contain only alphabets and min. length = 1
             </span>
             <span ng-if="regForm.lastname.$error.maxlength && regForm.lastname.$touched">
-              Username must not be longer than 30 characters
+              Lastname must not be longer than 30 characters
             </span>
             <br>
         <input type="email" name="email" placeholder="Email"
@@ -47,13 +48,14 @@
           </span>
           <br>
           <input type="text" name="menunumber" placeholder="Menu Number"
-            ng-model="reg.user.menunumber">
+            ng-model="reg.user.menunumber" ng-class="{'ng-invalid':reg.menuItemerror}">
             <span>
               {{reg.menuItemerror}}
             </span>
             <br>
         <button   ng-disabled="regForm.$invalid"
-          ng-click="reg.submit()">Submit</button>
+          ng-click="reg.submit()">Submit
+        </button>
       </form>
       <div id="info" ng-if="reg.completed">
       Your information has been saved.!<br>
