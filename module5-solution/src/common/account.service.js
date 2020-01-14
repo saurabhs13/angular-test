@@ -13,11 +13,9 @@ function AccountService() {
 
   service.registerUser = function (user) {
       currentUser = user;
-      console.log("Current User",currentUser);
   };
 
   service.getUserInfo = function(){
-      console.log("getUserInfo",currentUser);
       return currentUser;
   };
 }

@@ -30,8 +30,6 @@ function MenuService($http, ApiPath) {
   service.getMenuItemForShortName = function (shortName) {
     var menuShortCode = '/menu_items/'+shortName+'.json';
     return $http.get(ApiPath + menuShortCode).then(function (response) {
-      console.log("Menu Item",response.data);
-      console.log("Menu Item",response.status);
       return response.data;
     });
   };

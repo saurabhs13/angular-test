@@ -1,7 +1,12 @@
 <div class="container">
-  <h2 class="text-center">MyInfo</h2>
-    {{myinfoCtrl.userinfo}}
-    {{myinfoCtrl.menuItem}}
+
+
+    <div ng-if="!myinfoCtrl.menuItem">
+    <h2>Not Signed Up Yet.<a ui-sref="public.signup"> Sign up Now! </a> </h2>
+    </div>
+
+    <div ng-if="myinfoCtrl.menuItem">
+    <h2 class="text-center">MyInfo</h2>
     <span>First Name: {{myinfoCtrl.userinfo.firstname}}</span><br/>
     <span>Last Name: {{myinfoCtrl.userinfo.lastname}}</span><br/>
     <span>Email: {{myinfoCtrl.userinfo.email}}</span><br/>
@@ -21,5 +26,6 @@
         </div>
       </div>
       <hr class="visible-xs">
+    </div>
     </div>
 </div>
